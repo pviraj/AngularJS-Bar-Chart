@@ -1,0 +1,38 @@
+!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.25/angular.js" data-semver="1.2.25"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+    <div class="grid-wrap">
+        <div class="grid-col one-whole">
+            <h1>Tesco Clubclard Points History</h1>
+        </div>
+    </div>
+    
+    <div class="grid-wrap">
+        <div ng-repeat="pointsYear in Points" class="points-container" ng-init="quarterColour = $index;">
+            <div class="grid-col one-whole points-year">
+                <h2>Year: {{ pointsYear.Year }}</h2>
+            </div>
+            <div ng-repeat="pointsQuarter in pointsYear.Entries" class="one-whole points-bar-container">
+                <div class="grid-col one-fifth">{{ pointsQuarter.Quarter }}: </div>
+                <div ng-style="{background: ChartConfig.barColours[quarterColour], opacity: 1,  width: ((pointsQuarter.TotalAquiredPoints / 800) * 80) + '%'}" class="grid-col four-fifths points-bar">
+                    <span>{{ pointsQuarter.TotalAquiredPoints }}</span>
+                </div>
+            </div>
+            <br><br><br><br><br><br>
+        </div>
+    </div>
+    
+</body>
+</html>
