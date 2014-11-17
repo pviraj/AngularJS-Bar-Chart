@@ -1,4 +1,4 @@
-AngularJS-Bar-Chart
+AngularJS Bar Chart
 ===================
 
 This is a simple example of how an ng-repeat can be used to create a simple bar chart.
